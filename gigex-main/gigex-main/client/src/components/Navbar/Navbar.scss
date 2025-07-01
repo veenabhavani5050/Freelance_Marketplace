@@ -1,0 +1,218 @@
+.navbar {
+  display: flex;
+  z-index: 99;
+  flex-direction: column;
+  align-items: center;
+  background-color: #9a530b;
+  color: white;
+  transition: 0.5s all ease;
+  position: sticky;
+  top: 0;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  &.active {
+    background-color: white;
+    color: black;
+
+    .link {
+      button {
+        border-color: #f59330 !important;
+        color: #000000 !important;
+      }
+    }
+  }
+
+  .container {
+    width: 90vw;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 2vw 0;
+    position: relative;
+
+    .hamburger {
+      display: none;
+    }
+
+    .logo {
+      font-size: 3.4vw;
+      font-weight: bold;
+
+      .text {
+      }
+
+      .dot {
+        color: #f59330;
+      }
+    }
+
+    .links {
+      display: flex;
+      align-items: center;
+      gap: 2vw;
+      font-weight: 500;
+
+      .user {
+        display: flex;
+        align-items: center;
+        gap: 1vw;
+        cursor: pointer;
+        position: relative;
+
+        img {
+          width: 3.2vw;
+          height: 3.2vw;
+          border-radius: 50%;
+          object-fit: cover;
+        }
+
+        .options {
+          position: absolute;
+          top: 5vw;
+          right: 0;
+          padding: 2vw;
+          background-color: white;
+          border-radius: 1vw;
+          border: 0.1vw solid lightgray;
+          color: black;
+          display: flex;
+          flex-direction: column;
+          gap: 1vw;
+          width: 10vw;
+        }
+      }
+
+      button {
+        color: white;
+        padding: 1vw 2vw;
+        border-radius: 0.5vw;
+        border: 0.1vw solid white;
+        cursor: pointer;
+        background-color: transparent;
+
+        &:hover {
+          background-color: #f59330;
+          border-color: #f59330;
+          transition: ease-in-out, 0.7s;
+        }
+      }
+    }
+  }
+
+  hr {
+    width: 100vw;
+    height: 0;
+    border: 0.05vw solid lightgray;
+  }
+
+  .menu {
+    width: 90vw;
+    padding: 1vw 0;
+    display: flex;
+    justify-content: space-between;
+    font-weight: 400;
+    color: gray;
+  }
+}
+
+@media (max-width: 980px) {
+  .navbar {
+    .menu {
+      display: none;
+    }
+
+    hr {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .navbar {
+    background-color: white;
+    color: black;
+    .menu {
+      display: none;
+    }
+
+    hr {
+      display: none;
+    }
+    .container {
+      display: flex;
+
+      .logo {
+        display: flex;
+        flex-direction: row;
+      }
+      .links {
+        padding-top: 60px;
+        gap: 20px;
+        position: absolute;
+        flex-direction: column;
+        top: 0vw;
+        left: 20vw;
+        color: black;
+        background-color: white;
+        height: 100vh;
+        width: 80vw;
+
+        &.show {
+          display: none;
+        }
+
+        span {
+          width: 80%;
+          height: 40px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-radius: 6px;
+
+          &:hover {
+            background-color: lightgray;
+          }
+        }
+
+        .user {
+          width: 80%;
+          display: flex;
+          justify-content: center;
+          gap: 30px;
+
+          img {
+            width: 50px;
+            height: 50px;
+          }
+          span {
+            width: 40%;
+          }
+
+          .options {
+            left: 22vw;
+            top: 16vw;
+            width: 28vw;
+          }
+        }
+      }
+
+      .hamburger {
+        display: block;
+        position: relative;
+        z-index: 20;
+        img {
+          width: 27px;
+        }
+      }
+
+      .logo {
+        font-size: 5vw;
+        font-weight: bold;
+      }
+    }
+  }
+}

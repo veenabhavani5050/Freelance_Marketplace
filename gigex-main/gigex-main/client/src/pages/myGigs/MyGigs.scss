@@ -1,0 +1,67 @@
+.myGigs {
+    display: flex;
+    justify-content: center;
+    color: #555;
+  
+    .container {
+      width: 90vw;
+      padding: 50px 0px;
+  
+      .title {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 60px;
+
+        h1{
+            font-weight: 550;
+        }
+  
+        button {
+          background-color: #F59330;
+          color: white;
+          font-weight: 500;
+          border: none;
+          padding: 10px;
+          border-radius: 5px;
+          cursor: pointer;
+
+          &:hover{
+            background-color: #ffac59;
+          }
+        }
+      }
+  
+      table {
+        width: 100%;
+  
+        tr {
+          height: 70px;
+          th {
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: 550;
+          }
+          td {
+            text-align: center;
+            
+            .image {
+              width: 60px;
+              height: 40px;
+              object-fit: cover;
+              border-radius: 3px;
+            }
+  
+            .delete {
+              width: 20px;
+              cursor: pointer;
+            }
+  
+          }
+          &:nth-child(even) {
+            background-color: #fff9f3;
+            border-radius: 5px;
+          }
+        }
+      }
+    }
+  }

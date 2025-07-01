@@ -1,0 +1,152 @@
+.gigs {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  .container {
+    width: 90vw;
+    padding: 30px 0px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    .breadcrumbs {
+      font-weight: 350;
+      text-transform: uppercase;
+      font-size: 13px;
+      color: #555;
+    }
+
+    h1 {
+      color: #222325;
+      font-weight: 550;
+    }
+
+    p {
+      color: #74767e;
+      font-weight: 450;
+    }
+
+    .menu {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+
+      .left {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: #555;
+        font-weight: 300;
+
+        span {
+          color: #404145;
+          font-weight: 450 !important;
+        }
+
+        input {
+          padding: 5px;
+          border: 1px solid lightgrey;
+          border-radius: 5px;
+          outline: none;
+
+          &::placeholder {
+            color: #acacac;
+            font-weight: 450 !important;
+          }
+        }
+
+        button {
+          padding: 5px 10px;
+          background-color: #f59330;
+          color: white;
+          border: none;
+          font-weight: 500;
+          border-radius: 5px;
+          cursor: pointer;
+        }
+      }
+
+      .right {
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        .sortBy {
+          color: #555;
+          font-weight: 300;
+        }
+
+        .sortType {
+          font-weight: 500;
+        }
+
+        img {
+          width: 15px;
+          cursor: pointer;
+        }
+
+        .rightMenu {
+          padding: 20px;
+          background-color: white;
+          border: 0.5px solid lightgrey;
+          border-radius: 5px;
+          position: absolute;
+          top: 30px;
+          right: 0;
+          z-index: 9;
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+          color: #555;
+
+          span {
+            cursor: pointer;
+          }
+        }
+      }
+    }
+
+    .cards {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 90px;
+    }
+  }
+}
+
+//Form mobile
+@media (max-width: 600px) {
+  .gigs {
+    .container {
+      .cards {
+        justify-content: center;
+      }
+
+      .menu {
+        flex-direction: column;
+        gap: 20px;
+        .left {
+          input {
+            width: 40px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.shimmer-card {
+  border-radius: 8px;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  width: 100%;
+}
+
+
+.shimmer-thumbnail {
+  border-radius: 9px;
+}

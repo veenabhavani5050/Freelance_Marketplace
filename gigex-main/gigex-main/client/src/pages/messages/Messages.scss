@@ -1,0 +1,71 @@
+.messages {
+    display: flex;
+    justify-content: center;
+
+    h1{
+        color: rgb(33, 33, 33);
+    }
+  
+    .container {
+      width: 90vw;
+      padding: 50px 0px;
+  
+      .title {
+        display: flex;
+        justify-content: space-between;
+  
+        button {
+          background-color: #F59330;
+          color: white;
+          font-weight: 500;
+          border: none;
+          padding: 10px;
+          cursor: pointer;
+        }
+      }
+  
+      table {
+        width: 100%;
+  
+        tr {
+          height: 100px;
+          color: rgb(33, 33, 33);
+          th {
+            text-align: center;
+            font-size: 1.2rem;
+            color: rgb(53, 53, 53);
+          }
+          td {
+            padding: 10px;
+            text-align: center;
+  
+            &:first-child {
+              font-weight: 500;
+            }
+            
+            &:nth-child(2),
+            &:nth-child(3) {
+              color: gray;
+            }
+          }
+  
+          button {
+            background-color: black;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 6px;
+
+            &:hover{
+            background-color: rgb(39, 39, 39);
+            }
+          }
+  
+          &.active {
+            background-color: #fffbf5;
+          }
+        }
+      }
+    }
+  }

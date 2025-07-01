@@ -1,0 +1,45 @@
+.trustedBy {
+  background-color: #fafafa;
+  height: 110px;
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  .container {
+    max-width: 90vw;
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    color: rgb(200, 200, 200);
+    font-weight: 500;
+
+    img {
+      height: 70px;
+      object-fit: contain;
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    height: 160px;
+    .container {
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+
+      span {
+        display: none;
+      }
+      img {
+        flex-basis: calc(50% - 20px);
+        max-width: calc(50% - 20px);
+
+        &:nth-child(5) {
+          display: none;
+        }
+      }
+    }
+  }
+}

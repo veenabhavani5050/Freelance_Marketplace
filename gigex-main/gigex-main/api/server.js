@@ -10,27 +10,33 @@ import reviewRoute from "./routes/review.route.js";
 import authRoute from "./routes/auth.route.js";
 import cookieParser from "cookie-parser";
 import cors from "cors";
-//const express = require("express");
 
 const app = express();
 dotenv.config();
 mongoose.set("strictQuery", true);
 
+// Validate required environment variables
+if (!process.env.MONGO || !process.env.JWT_KEY || !process.env.STRIPE) {
+  console.error("❌ Missing required environment variables. Check .env file.");
+  process.exit(1);
+}
+
 const connect = async () => {
   try {
     await mongoose.connect(process.env.MONGO);
-    console.log("Connected to MongoDB!");
+    console.log("✅ Connected to MongoDB!");
   } catch (error) {
-    console.log(error);
+    console.error("❌ MongoDB connection failed:", error);
+    process.exit(1);
   }
 };
 
-const corsOrigin = process.env.CORS_ORIGIN;
-
-app.use(cors({origin: corsOrigin, credentials:true}));
+const corsOrigin = process.env.CORS_ORIGIN || "http://localhost:5173";
+app.use(cors({ origin: corsOrigin, credentials: true }));
 app.use(express.json());
 app.use(cookieParser());
 
+// API Routes
 app.use("/api/auth", authRoute);
 app.use("/api/users", userRoute);
 app.use("/api/gigs", gigRoute);
@@ -39,14 +45,16 @@ app.use("/api/conversations", conversationRoute);
 app.use("/api/messages", messageRoute);
 app.use("/api/reviews", reviewRoute);
 
+// Error Handling Middleware
 app.use((err, req, res, next) => {
   const errorStatus = err.status || 500;
   const errorMessage = err.message || "Something went wrong!";
-
   return res.status(errorStatus).send(errorMessage);
 });
 
-app.listen(8800, () => {
+// Start Server
+const PORT = process.env.PORT || 8800;
+app.listen(PORT, () => {
   connect();
-  console.log("Backend Server is running!");
+  console.log(`🚀 Backend Server is running on port ${PORT}`);
 });

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Login.scss";
-import newRequest from "../../utils/newRequest.js";
+import newRequest from "../../utils/newRequest";
 import { useNavigate } from "react-router-dom";
 
 function Login() {
@@ -15,9 +15,9 @@ function Login() {
     try {
       const res = await newRequest.post("/auth/login", { username, password });
       localStorage.setItem("currentUser", JSON.stringify(res.data));
-      navigate("/")
+      navigate("/");
     } catch (err) {
-      setError(err.response.data);
+      setError(err.response?.data || "Login failed");
     }
   };
 
@@ -25,22 +25,22 @@ function Login() {
     <div className="login">
       <form onSubmit={handleSubmit}>
         <h1>Sign in</h1>
-        <label htmlFor="">Username</label>
+        <label>Username</label>
         <input
-          name="username"
           type="text"
           placeholder="johndoe"
+          value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
 
-        <label htmlFor="">Password</label>
+        <label>Password</label>
         <input
-          name="password"
           type="password"
+          value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
         <button type="submit">Login</button>
-        {error && error}
+        {error && <p className="error">{error}</p>}
       </form>
     </div>
   );
